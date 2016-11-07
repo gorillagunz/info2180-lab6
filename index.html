@@ -1,21 +1,67 @@
 <!DOCTYPE html>
 <html>
 <body>
+    <style>
+    #result{
+        
+    background-color: #d3d3d3;
+    height:300px;
+    width:1000px;
+    margin:auto;
+    border:10px solid white;
+    }
+    
+    div{
+    margin:auto;
+    height: 100px;
+    width:1000px;
+    background-color: purple;
+    text-align:center;
+    vertical-align:middle;
+    line-height:100px;
+        }
+        #result1{
+            background-color: #d3d3d3;
+    height:300px;
+    width:1000px;
+    margin:auto;
+    
+        }
+        
+    </style>
+    <div><h1>Web Dictionary</h1></div>
+    <div id="result">
+    <form action="request.php" >
+Input word to get definiton(ie. ajax, definition, bar, html, css, javscript or php)<br>
+  <input type="text" name="q" value="" id="texts">
+  
+  </div>
+  <div id="result1">
+      <h3>Result</h3>
+      <p></p>
+      </div>
 <script>
+
+var h=document.getElementById("texts");
 var but = document.createElement("BUTTON");        
 var tex = document.createTextNode("SEARCH");       
-but.appendChild(tex);                                
-document.body.appendChild(but);
+but.appendChild(tex);   
+var g=document.getElementById("result")
+g.appendChild(but);
 but.addEventListener("click",function(){
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (xhttp.readyState == 4 && xhttp.status == 200) {
-     alert(xhttp.responseText);
+     var d=document.getElementsByTagName("p");
+     var t=d[0];
+     d[0].innerHTML=xhttp.responseText;
     }
   };
-  xhttp.open("GET", "?q=definition", true);
+  xhttp.open("GET", "request.php?q="+h.value, true);
   xhttp.send();
 });
+
 </script>
+
 </body>
 </html>
