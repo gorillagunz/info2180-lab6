@@ -12,4 +12,8 @@ $definition = [
     "php" => "A server-side scripting language, and a powerful tool for making dynamic and interactive websites",
 ];
 print "<h3>" . strtoupper($query) . "</h3>";
+<<<<<<< HEAD
 print "<p>" . $definition[$query] . "</p>";
+=======
+print "<p>" . $definition[$query] . "</p>";
+>>>>>>> d5af2c2d38131fd847da672732143b0e5e8ced51
