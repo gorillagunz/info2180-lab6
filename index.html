@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+var but = document.createElement("BUTTON");        
+var tex = document.createTextNode("SEARCH");       
+but.appendChild(tex);                                
+document.body.appendChild(but);
+but.addEventListener("click",function(){
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+     alert(xhttp.responseText);
+    }
+  };
+  xhttp.open("GET", "?q=definition", true);
+  xhttp.send();
+});
+</script>
+</body>
+</html>
