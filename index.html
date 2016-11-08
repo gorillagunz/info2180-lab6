@@ -20,9 +20,9 @@
     vertical-align:middle;
     line-height:100px;
         }
-        #result1{
-            background-color: #d3d3d3;
-    height:300px;
+    #result1{
+    background-color: #d3d3d3;
+    height:1000px;
     width:1000px;
     margin:auto;
     
@@ -39,6 +39,7 @@ Input word to get definiton(ie. ajax, definition, bar, html, css, javscript or p
   <div id="result1">
       <h3>Result</h3>
       <p></p>
+      <table id="tab"></table>
       </div>
 <script>
 
@@ -46,20 +47,56 @@ var h=document.getElementById("texts");
 var but = document.createElement("BUTTON");        
 var tex = document.createTextNode("SEARCH");       
 but.appendChild(tex);   
-var g=document.getElementById("result")
+var g=document.getElementById("result");
 g.appendChild(but);
 but.addEventListener("click",function(){
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (xhttp.readyState == 4 && xhttp.status == 200) {
      var d=document.getElementsByTagName("p");
-     var t=d[0];
      d[0].innerHTML=xhttp.responseText;
     }
   };
   xhttp.open("GET", "request.php?q="+h.value, true);
   xhttp.send();
 });
+var n= document.createElement("BUTTON");
+var texty= document.createTextNode("Get all Definitions");
+n.appendChild(texty);
+g.appendChild(n);
+n.addEventListener("click",function(){
+    var xmlhhttp = new XMLHttpRequest();
+xmlhhttp.onreadystatechange = function() {
+    if (xmlhhttp.readyState == 4 && xmlhhttp.status == 200) {
+       var d=document.getElementsByTagName("p");
+    // d[0].innerHTML=xmlhhttp.responseText;
+     // console.log(xmlhhttp.responseText);
+     var i;
+  var xmlDoc = xmlhhttp.responseXML;
+  var table="<tr><th>Definition name</th><th>Definition</th><th>author</th></tr>";
+  var x = xmlDoc.getElementsByTagName("definition");
+ // var t=x.length();
+ // console.log(t);
+ for (i = 0; i <x.length; i++) { 
+ table += "<tr><td>" +
+ x[i].getAttribute("name")+ "</td><td>"+x[i].innerHTML+"</td><td>"+
+ x[i].getAttribute("author")+"</td></tr>";
+
+    // +
+   // "</td><td>" +
+   // x[i].getElementsByTagName("author")[0].childNodes[0].nodeValue +
+   // "</td></tr>";
+  }
+  var t=x.length;
+  console.log(x[0].innerHTML);
+  document.getElementById("tab").innerHTML = table;
+     
+    }
+};
+xmlhhttp.open("GET", "request.php?q=&all=true", true);
+xmlhhttp.send();
+});
+
 
 </script>
 
