@@ -60,7 +60,7 @@ but.addEventListener("click",function(){
   xhttp.open("GET", "request.php?q="+h.value, true);
   xhttp.send();
 });
-var n= document.createElement("BUTTON");
+/*var n= document.createElement("BUTTON");
 var texty= document.createTextNode("Get all Definitions");
 n.appendChild(texty);
 g.appendChild(n);
@@ -69,23 +69,18 @@ n.addEventListener("click",function(){
 xmlhhttp.onreadystatechange = function() {
     if (xmlhhttp.readyState == 4 && xmlhhttp.status == 200) {
        var d=document.getElementsByTagName("p");
-    // d[0].innerHTML=xmlhhttp.responseText;
-     // console.log(xmlhhttp.responseText);
+ 
      var i;
   var xmlDoc = xmlhhttp.responseXML;
   var table="<tr><th>Definition name</th><th>Definition</th><th>author</th></tr>";
   var x = xmlDoc.getElementsByTagName("definition");
- // var t=x.length();
- // console.log(t);
+ 
  for (i = 0; i <x.length; i++) { 
  table += "<tr><td>" +
  x[i].getAttribute("name")+ "</td><td>"+x[i].innerHTML+"</td><td>"+
  x[i].getAttribute("author")+"</td></tr>";
 
-    // +
-   // "</td><td>" +
-   // x[i].getElementsByTagName("author")[0].childNodes[0].nodeValue +
-   // "</td></tr>";
+ 
   }
   var t=x.length;
   console.log(x[0].innerHTML);
@@ -96,7 +91,7 @@ xmlhhttp.onreadystatechange = function() {
 xmlhhttp.open("GET", "request.php?q=&all=true", true);
 xmlhhttp.send();
 });
-
+*/
 
 </script>
 
