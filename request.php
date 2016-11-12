@@ -1,7 +1,7 @@
 <?php
 // accept a term (keyword)
 // respond with a value
-/*$query = $_GET['q'];
+$query = $_GET['q'];
 $definition = [
     "definition" => "A statement of the exact meaning of a word, especially in a dictionary.",
     "bar" => "A place that sells alcholic beverages",
@@ -14,7 +14,7 @@ $definition = [
 print "<h3>" . strtoupper($query) . "</h3>";
 
 print "<p>" . $definition[$query] . "</p>";
-*/
+/*
 $xmldata =
 '<?xml version="1.0" encoding="UTF-8"?><entries>
     <definition name="definition" author="Jovaun">A statement of the exact meaning of a word, especially in a dictionary.</definition>
@@ -27,5 +27,5 @@ $xmldata =
 </entries>';
 header("Content-Type:text/xml");
 $xmld=new SimpleXMLElement($xmldata);
-echo $xmld->asXML();
+echo $xmld->asXML();*/
 
